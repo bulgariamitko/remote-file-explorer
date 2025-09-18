@@ -52,7 +52,7 @@ These features eliminate the manual coordination typically required when working
 
 ## Screenshot
 
-![Main Interface](@screenshots/main-interface.png)
+![Main Interface](screenshots/app.png)
 *Dual-pane interface showing synchronized local and remote file management with intelligent path mirroring, selection sync, and unified file operations*
 
 ## Installation
@@ -77,9 +77,9 @@ npm install
 
 ### Server Setup
 
-1. **Create the `.servers` file** in the project root directory:
+1. **Create the `.servers` file** in your home directory:
 ```bash
-touch .servers
+touch ~/.servers
 ```
 
 2. **Add your server configurations** using the following JSON format:
@@ -208,8 +208,7 @@ remote-file-explorer/
 │   ├── styles/
 │   │   └── *.css           # Component styles
 │   └── App.js              # Main React component
-├── .servers                # Server configurations (create this)
-├── .gitignore             # Excludes .servers from version control
+├── .gitignore             # Excludes sensitive files from version control
 ├── package.json
 └── README.md
 ```
@@ -248,7 +247,7 @@ Secure bridge between Electron main process and renderer process.
 ## Security Considerations
 
 ### Credential Protection
-- ✅ Server credentials stored in `.servers` file (excluded from Git)
+- ✅ Server credentials stored in `~/.servers` file in user's home directory
 - ✅ No hardcoded passwords or keys in source code
 - ✅ Electron context isolation enabled
 - ✅ Node integration disabled in renderer process
@@ -264,7 +263,7 @@ Secure bridge between Electron main process and renderer process.
 ### Common Issues
 
 #### "No servers found" message
-- Ensure `.servers` file exists in project root
+- Ensure `.servers` file exists in your home directory (`~/.servers`)
 - Check JSON syntax in `.servers` file
 - Verify file permissions (should be readable)
 
@@ -282,7 +281,7 @@ Secure bridge between Electron main process and renderer process.
 #### "No handler registered" errors
 - Restart the Electron app
 - Check console for detailed error messages
-- Verify `.servers` file is valid JSON
+- Verify `~/.servers` file is valid JSON
 
 ### Debug Mode
 

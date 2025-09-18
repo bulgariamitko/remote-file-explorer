@@ -511,7 +511,7 @@ ipcMain.handle('show-open-dialog', async (event, options) => {
 // Server configuration handlers
 ipcMain.handle('load-servers', async () => {
   try {
-    const serversFilePath = path.join(__dirname, '..', '.servers');
+    const serversFilePath = path.join(os.homedir(), '.servers');
 
     if (fs.existsSync(serversFilePath)) {
       const fileContent = await fs.readFile(serversFilePath, 'utf8');
@@ -534,7 +534,7 @@ ipcMain.handle('load-servers', async () => {
 
 ipcMain.handle('save-servers', async (event, servers) => {
   try {
-    const serversFilePath = path.join(__dirname, '..', '.servers');
+    const serversFilePath = path.join(os.homedir(), '.servers');
 
     // Create the content with comments
     let fileContent = `# Remote File Explorer - Server Configuration
